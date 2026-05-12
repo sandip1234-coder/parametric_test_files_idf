@@ -1,0 +1,275 @@
+Program Version,EnergyPlus, Version 24.2.0-94a887817b, YMD=2025.09.19 17:29
+! This file shows details about the branches, nodes, and other
+! elements of the flow connections.
+! This file is intended for use in "debugging" potential problems
+! that may also be detected by the program, but may be more easily
+! identified by "eye".
+! This file is also intended to support software which draws a
+! schematic diagram of the HVAC system.
+! ===============================================================
+! #Nodes,<Number of Unique Nodes>
+ #Nodes,26
+! <Node>,<NodeNumber>,<Node Name>,<Node Fluid Type>,<# Times Node Referenced After Definition>
+ Node,1,NODE 9,Air,4
+ Node,2,NODE 14,Air,2
+ Node,3,NODE 15,Air,3
+ Node,4,NODE 16,Air,2
+ Node,5,NODE 18,Air,3
+ Node,6,NODE 19,Air,2
+ Node,7,NODE 21,Air,3
+ Node,8,NODE 22,Air,2
+ Node,9,NODE 6,Air,10
+ Node,10,NODE 7,Air,3
+ Node,11,NODE 5,Air,3
+ Node,12,NODE 10,Air,6
+ Node,13,NODE 11,Air,6
+ Node,14,NODE 12,Air,8
+ Node,15,NODE 1,Air,1
+ Node,16,NODE 2,Air,0
+ Node,17,NODE 3,Air,0
+ Node,18,NODE 4,Air,0
+ Node,19,NODE 8,Air,2
+ Node,20,OUTBOARD OA NODE,Air,2
+ Node,21,MODEL OUTDOOR AIR NODE,Air,0
+ Node,22,NODE 13,Air,1
+ Node,23,NODE 17,Air,1
+ Node,24,NODE 20,Air,1
+ Node,25,NODE 23,Air,1
+ Node,26,RELIEF NODE,Air,1
+! ===============================================================
+! Suspicious nodes have 0 references.  It is normal for some nodes, however.
+! Listing nodes with 0 references (culled from previous list):
+! <Suspicious Node>,<NodeNumber>,<Node Name>,<Node Fluid Type>,<# Times Node Referenced After Definition>
+ Suspicious Node,16,NODE 2,Air,0
+ Suspicious Node,17,NODE 3,Air,0
+ Suspicious Node,18,NODE 4,Air,0
+ Suspicious Node,21,MODEL OUTDOOR AIR NODE,Air,0
+! ===============================================================
+! <#Branch Lists>,<Number of Branch Lists>
+ #Branch Lists,1
+! <Branch List>,<Branch List Count>,<Branch List Name>,<Loop Name>,<Loop Type>,<Number of Branches>
+! <Branch>,<Branch Count>,<Branch Name>,<Loop Name>,<Loop Type>,<Branch Inlet Node Name>,<Branch Outlet Node Name>
+ Branch List,1,PACKAGED ROOFTOP AIR CONDITIONER SUPPLY BRANCHES,PACKAGED ROOFTOP AIR CONDITIONER,Air,1
+   Branch,1,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,PACKAGED ROOFTOP AIR CONDITIONER,Air,NODE 5,NODE 6
+! ===============================================================
+! <#Supply Air Paths>,<Number of Supply Air Paths>
+ #Supply Air Paths,1
+! <Supply Air Path>,<Supply Air Path Count>,<Supply Air Path Name>,<AirLoopHVAC Name>
+! <#Components on Supply Air Path>,<Number of Components>
+! <Supply Air Path Component>,<Component Count>,<Component Type>,<Component Name>,<AirLoopHVAC Name>
+! <#Outlet Nodes on Supply Air Path Component>,<Number of Nodes>
+! <Supply Air Path Component Nodes>,<Node Count>,<Component Type>,<Component Name>,<Inlet Node Name>,<Outlet Node Name>,<AirLoopHVAC Name>
+ Supply Air Path,1,PACKAGED ROOFTOP AIR CONDITIONER NODE 7 SUPPLY PATH,PACKAGED ROOFTOP AIR CONDITIONER
+   #Components on Supply Air Path,1
+   Supply Air Path Component,1,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,PACKAGED ROOFTOP AIR CONDITIONER
+     #Outlet Nodes on Supply Air Path Component,4
+     Supply Air Path Component Nodes,1,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,NODE 7,NODE 13,PACKAGED ROOFTOP AIR CONDITIONER
+     Supply Air Path Component Nodes,2,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,NODE 7,NODE 17,PACKAGED ROOFTOP AIR CONDITIONER
+     Supply Air Path Component Nodes,3,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,NODE 7,NODE 20,PACKAGED ROOFTOP AIR CONDITIONER
+     Supply Air Path Component Nodes,4,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,NODE 7,NODE 23,PACKAGED ROOFTOP AIR CONDITIONER
+! <#Nodes on Supply Air Path>,<Number of Nodes>
+! <Supply Air Path Node>,<Node Type>,<Node Count>,<Node Name>,<AirLoopHVAC Name>
+#Nodes on Supply Air Path,5
+   Supply Air Path Node,Inlet Node,1,NODE 7,PACKAGED ROOFTOP AIR CONDITIONER
+   Supply Air Path Node,Outlet Node,2,NODE 13,PACKAGED ROOFTOP AIR CONDITIONER
+   Supply Air Path Node,Outlet Node,3,NODE 17,PACKAGED ROOFTOP AIR CONDITIONER
+   Supply Air Path Node,Outlet Node,4,NODE 20,PACKAGED ROOFTOP AIR CONDITIONER
+   Supply Air Path Node,Outlet Node,5,NODE 23,PACKAGED ROOFTOP AIR CONDITIONER
+! ===============================================================
+! <#Return Air Paths>,<Number of Return Air Paths>
+ #Return Air Paths,1
+! <Return Air Path>,<Return Air Path Count>,<Return Air Path Name>,<AirLoopHVAC Name>
+! <#Components on Return Air Path>,<Number of Components>
+! <Return Air Path Component>,<Component Count>,<Component Type>,<Component Name>,<AirLoopHVAC Name>
+! <#Inlet Nodes on Return Air Path Component>,<Number of Nodes>
+! <Return Air Path Component Nodes>,<Node Count>,<Component Type>,<Component Name>,<Inlet Node Name>,<Outlet Node Name>,<AirLoopHVAC Name>
+ Return Air Path,1,PACKAGED ROOFTOP AIR CONDITIONER RETURN PATH,PACKAGED ROOFTOP AIR CONDITIONER
+   #Components on Return Air Path,1
+   Return Air Path Component,1,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,PACKAGED ROOFTOP AIR CONDITIONER
+     #Inlet Nodes on Return Air Path Component,4
+     Return Air Path Component Nodes,1,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,NODE 14,NODE 8,PACKAGED ROOFTOP AIR CONDITIONER
+     Return Air Path Component Nodes,2,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,NODE 16,NODE 8,PACKAGED ROOFTOP AIR CONDITIONER
+     Return Air Path Component Nodes,3,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,NODE 19,NODE 8,PACKAGED ROOFTOP AIR CONDITIONER
+     Return Air Path Component Nodes,4,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,NODE 22,NODE 8,PACKAGED ROOFTOP AIR CONDITIONER
+! <#Nodes on Return Air Path>,<Number of Nodes>
+! <Return Air Path Node>,<Node Type>,<Node Count>,<Node Name>,<AirLoopHVAC Name>
+   #Nodes on Return Air Path,5
+   Return Air Path Node,Outlet Node,1,NODE 8,PACKAGED ROOFTOP AIR CONDITIONER
+   Return Air Path Node,Inlet Node,2,NODE 14,PACKAGED ROOFTOP AIR CONDITIONER
+   Return Air Path Node,Inlet Node,3,NODE 16,PACKAGED ROOFTOP AIR CONDITIONER
+   Return Air Path Node,Inlet Node,4,NODE 19,PACKAGED ROOFTOP AIR CONDITIONER
+   Return Air Path Node,Inlet Node,5,NODE 22,PACKAGED ROOFTOP AIR CONDITIONER
+! ===============================================================
+! #Outdoor Air Nodes,<Number of Outdoor Air Nodes>
+ #Outdoor Air Nodes,2
+! <Outdoor Air Node>,<NodeNumber>,<Node Name>
+ Outdoor Air Node,20,OUTBOARD OA NODE
+ Outdoor Air Node,21,MODEL OUTDOOR AIR NODE
+! ===============================================================
+! <#Component Sets>,<Number of Component Sets>
+ #Component Sets,10
+! <Component Set>,<Component Set Count>,<Parent Object Type>,<Parent Object Name>,<Component Type>,<Component Name>,<Inlet Node ID>,<Outlet Node ID>,<Description>
+ Component Set,1,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,AIRLOOPHVAC:OUTDOORAIRSYSTEM,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1,NODE 5,NODE 10,Air Nodes
+ Component Set,2,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,COILSYSTEM:COOLING:DX,COIL COOLING DX SINGLE SPEED 1 COILSYSTEM,NODE 10,NODE 11,Air Nodes
+ Component Set,3,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,COIL:HEATING:FUEL,COIL HEATING GAS 1,NODE 11,NODE 12,Air Nodes
+ Component Set,4,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,FAN:CONSTANTVOLUME,FAN CONSTANT VOLUME 1,NODE 12,NODE 6,Air Nodes
+ Component Set,5,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 1,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 1,NODE 13,NODE 9,Air Nodes
+ Component Set,6,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 2,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 2,NODE 17,NODE 15,Air Nodes
+ Component Set,7,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 3,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 3,NODE 20,NODE 18,Air Nodes
+ Component Set,8,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 4,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 4,NODE 23,NODE 21,Air Nodes
+ Component Set,9,AIRLOOPHVAC:OUTDOORAIRSYSTEM,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1,OUTDOORAIR:MIXER,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1 OUTDOOR AIR MIXER,OUTBOARD OA NODE,NODE 10,Air Nodes
+ Component Set,10,COILSYSTEM:COOLING:DX,COIL COOLING DX SINGLE SPEED 1 COILSYSTEM,COIL:COOLING:DX:SINGLESPEED,COIL COOLING DX SINGLE SPEED 1,NODE 10,NODE 11,Air Nodes
+! ===============================================================
+! <# Plant Loops>,<Number of Plant Loops>
+ #Plant Loops,0
+! <Plant Loop>,<Plant Loop Name>,<Loop Type>,<Inlet Node Name>,<Outlet Node Name>,<Branch List>,<Connector List>
+! <Plant Loop Connector>,<Connector Type>,<Connector Name>,<Loop Name>,<Loop Type>,<Number of Inlets/Outlets>
+! <Plant Loop Connector Branches>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Branch>,<Outlet Branch>,<Loop Name>,<Loop Type>
+! <Plant Loop Connector Nodes>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Node>,<Outlet Node>,<Loop Name>,<Loop Type>
+! <Plant Loop Supply Connection>,<Plant Loop Name>,<Supply Side Outlet Node Name>,<Demand Side Inlet Node Name>
+! <Plant Loop Return Connection>,<Plant Loop Name>,<Demand Side Outlet Node Name>,<Supply Side Inlet Node Name>
+! ===============================================================
+! <# Condenser Loops>,<Number of Condenser Loops>
+ #Condenser Loops,0
+! <Condenser Loop>,<Condenser Loop Name>,<Loop Type>,<Inlet Node Name>,<Outlet Node Name>,<Branch List>,<Connector List>
+! <Condenser Loop Connector>,<Connector Type>,<Connector Name>,<Loop Name>,<Loop Type>,<Number of Inlets/Outlets>
+! <Condenser Loop Connector Branches>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Branch>,<Outlet Branch>,<Loop Name>,<Loop Type>
+! <Condenser Loop Connector Nodes>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Node>,<Outlet Node>,<Loop Name>,<Loop Type>
+! <Condenser Loop Supply Connection>,<Condenser Loop Name>,<Supply Side Outlet Node Name>,<Demand Side Inlet Node Name>
+! <Condenser Loop Return Connection>,<Condenser Loop Name>,<Demand Side Outlet Node Name>,<Supply Side Inlet Node Name>
+! ===============================================================
+! <# Controlled Zones>,<Number of Controlled Zones>
+ #Controlled Zones,4
+! <Controlled Zone>,<Controlled Zone Name>,<Equip List Name>,<Control List Name>,<Zone Node Name>,<# Inlet Nodes>,<# Exhaust Nodes>,<# Return Nodes>
+! <Controlled Zone Inlet>,<Inlet Node Count>,<Controlled Zone Name>,<Supply Air Inlet Node Name>,<SD Sys:Cooling/Heating [DD:Cooling] Inlet Node Name>,<DD Sys:Heating Inlet Node Name>
+! <Controlled Zone Exhaust>,<Exhaust Node Count>,<Controlled Zone Name>,<Exhaust Air Node Name>
+ Controlled Zone,THERMAL ZONE 1,THERMAL ZONE 1 EQUIPMENT LIST,,NODE 1,1,0,1
+   Controlled Zone Inlet,1,THERMAL ZONE 1,NODE 9,NODE 13,N/A
+   Controlled Zone Return,1,THERMAL ZONE 1,NODE 14
+ Controlled Zone,THERMAL ZONE 2,THERMAL ZONE 2 EQUIPMENT LIST,,NODE 2,1,0,1
+   Controlled Zone Inlet,1,THERMAL ZONE 2,NODE 15,NODE 17,N/A
+   Controlled Zone Return,1,THERMAL ZONE 2,NODE 16
+ Controlled Zone,THERMAL ZONE 3,THERMAL ZONE 3 EQUIPMENT LIST,,NODE 3,1,0,1
+   Controlled Zone Inlet,1,THERMAL ZONE 3,NODE 18,NODE 20,N/A
+   Controlled Zone Return,1,THERMAL ZONE 3,NODE 19
+ Controlled Zone,THERMAL ZONE 4,THERMAL ZONE 4 EQUIPMENT LIST,,NODE 4,1,0,1
+   Controlled Zone Inlet,1,THERMAL ZONE 4,NODE 21,NODE 23,N/A
+   Controlled Zone Return,1,THERMAL ZONE 4,NODE 22
+! ===============================================================
+! <#Zone Equipment Lists>,<Number of Zone Equipment Lists>
+ #Zone Equipment Lists,4
+! <Zone Equipment List>,<Zone Equipment List Count>,<Zone Equipment List Name>,<Zone Name>,<Number of Components>
+! <Zone Equipment Component>,<Component Count>,<Component Type>,<Component Name>,<Zone Name>,<Heating Priority>,<Cooling Priority>
+ Zone Equipment List,1,THERMAL ZONE 1 EQUIPMENT LIST,THERMAL ZONE 1,1
+   Zone Equipment Component,1,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 1,THERMAL ZONE 1,1,1
+ Zone Equipment List,2,THERMAL ZONE 2 EQUIPMENT LIST,THERMAL ZONE 2,1
+   Zone Equipment Component,1,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 2,THERMAL ZONE 2,1,1
+ Zone Equipment List,3,THERMAL ZONE 3 EQUIPMENT LIST,THERMAL ZONE 3,1
+   Zone Equipment Component,1,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 3,THERMAL ZONE 3,1,1
+ Zone Equipment List,4,THERMAL ZONE 4 EQUIPMENT LIST,THERMAL ZONE 4,1
+   Zone Equipment Component,1,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 4,THERMAL ZONE 4,1,1
+! ===============================================================
+! <#AirLoopHVACs>,<Number of AirLoopHVACs>
+ #AirLoopHVACs,1
+! <AirLoopHVAC>,<Air Loop Name>,<# Return Nodes>,<# Supply Nodes>,<# Zones Cooled>,<# Zones Heated>,<Outdoor Air Used>
+! <AirLoop Return Connections>,<Connection Count>,<AirLoopHVAC Name>,<Zn Eqp Return Node #>,<Zn Eqp Return Node Name>,<AirLoop Return Node #>,<Air Loop Return Node Name>
+! <AirLoop Supply Connections>,<Connection Count>,<AirLoopHVAC Name>,<Zn Eqp Supply Node #>,<Zn Eqp Supply Node Name>,<AirLoop Supply Node #>,<Air Loop Supply Node Name>
+! <Cooled Zone Info>,<Cooled Zone Count>,<Cooled Zone Name>,<Cooled Zone Inlet Node #>,<Cooled Zone Inlet Node Name>,<AirLoopHVAC Name>
+! <Heated Zone Info>,<Heated Zone Count>,<Heated Zone Name>,<Heated Zone Inlet Node #>,<Heated Zone Inlet Node Name>,<AirLoopHVAC Name>
+! <Outdoor Air Connections>,<OA Inlet Node #>,<OA Return Air Inlet Node Name>,<OA Outlet Node #>,<OA Mixed Air Outlet Node Name>,<AirLoopHVAC Name>
+! <AirLoopHVAC Connector>,<Connector Type>,<Connector Name>,<Loop Name>,<Loop Type>,<Number of Inlets/Outlets>
+! <AirLoopHVAC Connector Branches>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Branch>,<Outlet Branch>,<Loop Name>,<Loop Type>
+! <AirLoopHVAC Connector Nodes>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Node>,<Outlet Node>,<Loop Name>,<Loop Type>
+ AirLoopHVAC,PACKAGED ROOFTOP AIR CONDITIONER,1,1,4,0,Yes
+   AirLoop Return Connections,1,PACKAGED ROOFTOP AIR CONDITIONER,19,NODE 8,11,NODE 5
+   AirLoop Supply Connections,1,PACKAGED ROOFTOP AIR CONDITIONER,10,NODE 7,9,NODE 6
+   Cooled Zone Info,1,THERMAL ZONE 1,1,NODE 9,PACKAGED ROOFTOP AIR CONDITIONER
+   Cooled Zone Info,2,THERMAL ZONE 2,3,NODE 15,PACKAGED ROOFTOP AIR CONDITIONER
+   Cooled Zone Info,3,THERMAL ZONE 3,5,NODE 18,PACKAGED ROOFTOP AIR CONDITIONER
+   Cooled Zone Info,4,THERMAL ZONE 4,7,NODE 21,PACKAGED ROOFTOP AIR CONDITIONER
+   Outdoor Air Connections,11,NODE 5,12,NODE 10,PACKAGED ROOFTOP AIR CONDITIONER
+! ===============================================================
+! <#Parent Node Connections>,<Number of Parent Node Connections>
+ #Parent Node Connections,18
+! <Parent Node Connection>,<Node Name>,<Node ObjectType>,<Node ObjectName>,<Node ConnectionType>,<Node FluidStream>
+ Parent Node Connection,NODE 5,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,Inlet,1
+ Parent Node Connection,NODE 10,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,Internal,1
+ Parent Node Connection,NODE 11,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,Internal,1
+ Parent Node Connection,NODE 12,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,Internal,1
+ Parent Node Connection,NODE 6,BRANCH,PACKAGED ROOFTOP AIR CONDITIONER MAIN BRANCH,Outlet,1
+ Parent Node Connection,NODE 7,AIRLOOPHVAC:SUPPLYPATH,PACKAGED ROOFTOP AIR CONDITIONER NODE 7 SUPPLY PATH,Inlet,1
+ Parent Node Connection,NODE 8,AIRLOOPHVAC:RETURNPATH,PACKAGED ROOFTOP AIR CONDITIONER RETURN PATH,Outlet,1
+ Parent Node Connection,NODE 9,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 1,Outlet,1
+ Parent Node Connection,NODE 15,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 2,Outlet,1
+ Parent Node Connection,NODE 18,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 3,Outlet,1
+ Parent Node Connection,NODE 21,ZONEHVAC:AIRDISTRIBUTIONUNIT,ADU AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 4,Outlet,1
+ Parent Node Connection,NODE 5,AIRLOOPHVAC,PACKAGED ROOFTOP AIR CONDITIONER,Inlet,1
+ Parent Node Connection,NODE 8,AIRLOOPHVAC,PACKAGED ROOFTOP AIR CONDITIONER,Outlet,1
+ Parent Node Connection,NODE 7,AIRLOOPHVAC,PACKAGED ROOFTOP AIR CONDITIONER,Inlet,1
+ Parent Node Connection,NODE 6,AIRLOOPHVAC,PACKAGED ROOFTOP AIR CONDITIONER,Outlet,1
+ Parent Node Connection,NODE 10,COILSYSTEM:COOLING:DX,COIL COOLING DX SINGLE SPEED 1 COILSYSTEM,Inlet,1
+ Parent Node Connection,NODE 11,COILSYSTEM:COOLING:DX,COIL COOLING DX SINGLE SPEED 1 COILSYSTEM,Outlet,1
+ Parent Node Connection,NODE 11,COILSYSTEM:COOLING:DX,COIL COOLING DX SINGLE SPEED 1 COILSYSTEM,Sensor,1
+! ===============================================================
+! <#Non-Parent Node Connections>,<Number of Non-Parent Node Connections>
+ #Non-Parent Node Connections,59
+! <Non-Parent Node Connection>,<Node Name>,<Node ObjectType>,<Node ObjectName>,<Node ConnectionType>,<Node FluidStream>
+ Non-Parent Node Connection,NODE 1,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 1,ZoneNode,1
+ Non-Parent Node Connection,NODE 9,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 1,ZoneInlet,1
+ Non-Parent Node Connection,NODE 14,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 1,ZoneReturn,1
+ Non-Parent Node Connection,NODE 2,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 2,ZoneNode,1
+ Non-Parent Node Connection,NODE 15,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 2,ZoneInlet,1
+ Non-Parent Node Connection,NODE 16,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 2,ZoneReturn,1
+ Non-Parent Node Connection,NODE 3,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 3,ZoneNode,1
+ Non-Parent Node Connection,NODE 18,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 3,ZoneInlet,1
+ Non-Parent Node Connection,NODE 19,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 3,ZoneReturn,1
+ Non-Parent Node Connection,NODE 4,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 4,ZoneNode,1
+ Non-Parent Node Connection,NODE 21,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 4,ZoneInlet,1
+ Non-Parent Node Connection,NODE 22,ZONEHVAC:EQUIPMENTCONNECTIONS,THERMAL ZONE 4,ZoneReturn,1
+ Non-Parent Node Connection,OUTBOARD OA NODE,OUTDOORAIR:NODELIST,OutdoorAir:NodeList,OutdoorAir,1
+ Non-Parent Node Connection,MODEL OUTDOOR AIR NODE,OUTDOORAIR:NODE,OutdoorAir:Node,OutdoorAir,2
+ Non-Parent Node Connection,NODE 1,SETPOINTMANAGER:SINGLEZONE:REHEAT,SETPOINT MANAGER SINGLE ZONE REHEAT 1,Sensor,1
+ Non-Parent Node Connection,NODE 9,SETPOINTMANAGER:SINGLEZONE:REHEAT,SETPOINT MANAGER SINGLE ZONE REHEAT 1,Sensor,1
+ Non-Parent Node Connection,NODE 6,SETPOINTMANAGER:SINGLEZONE:REHEAT,SETPOINT MANAGER SINGLE ZONE REHEAT 1,Setpoint,1
+ Non-Parent Node Connection,NODE 6,SETPOINTMANAGER:MIXEDAIR,NODE 10 OS DEFAULT SPM,Sensor,1
+ Non-Parent Node Connection,NODE 12,SETPOINTMANAGER:MIXEDAIR,NODE 10 OS DEFAULT SPM,Sensor,1
+ Non-Parent Node Connection,NODE 10,SETPOINTMANAGER:MIXEDAIR,NODE 10 OS DEFAULT SPM,Setpoint,1
+ Non-Parent Node Connection,NODE 6,SETPOINTMANAGER:MIXEDAIR,NODE 11 OS DEFAULT SPM,Sensor,1
+ Non-Parent Node Connection,NODE 12,SETPOINTMANAGER:MIXEDAIR,NODE 11 OS DEFAULT SPM,Sensor,1
+ Non-Parent Node Connection,NODE 11,SETPOINTMANAGER:MIXEDAIR,NODE 11 OS DEFAULT SPM,Setpoint,1
+ Non-Parent Node Connection,NODE 6,SETPOINTMANAGER:MIXEDAIR,NODE 12 OS DEFAULT SPM,Sensor,1
+ Non-Parent Node Connection,NODE 12,SETPOINTMANAGER:MIXEDAIR,NODE 12 OS DEFAULT SPM,Sensor,1
+ Non-Parent Node Connection,NODE 12,SETPOINTMANAGER:MIXEDAIR,NODE 12 OS DEFAULT SPM,Setpoint,1
+ Non-Parent Node Connection,NODE 7,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,Inlet,1
+ Non-Parent Node Connection,NODE 13,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,Outlet,1
+ Non-Parent Node Connection,NODE 17,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,Outlet,1
+ Non-Parent Node Connection,NODE 20,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,Outlet,1
+ Non-Parent Node Connection,NODE 23,AIRLOOPHVAC:ZONESPLITTER,AIR LOOP HVAC ZONE SPLITTER 1,Outlet,1
+ Non-Parent Node Connection,NODE 13,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 1,Inlet,1
+ Non-Parent Node Connection,NODE 9,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 1,Outlet,1
+ Non-Parent Node Connection,NODE 17,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 2,Inlet,1
+ Non-Parent Node Connection,NODE 15,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 2,Outlet,1
+ Non-Parent Node Connection,NODE 20,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 3,Inlet,1
+ Non-Parent Node Connection,NODE 18,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 3,Outlet,1
+ Non-Parent Node Connection,NODE 23,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 4,Inlet,1
+ Non-Parent Node Connection,NODE 21,AIRTERMINAL:SINGLEDUCT:CONSTANTVOLUME:NOREHEAT,AIR TERMINAL SINGLE DUCT CONSTANT VOLUME NO REHEAT 4,Outlet,1
+ Non-Parent Node Connection,NODE 8,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,Outlet,1
+ Non-Parent Node Connection,NODE 14,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,Inlet,1
+ Non-Parent Node Connection,NODE 16,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,Inlet,1
+ Non-Parent Node Connection,NODE 19,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,Inlet,1
+ Non-Parent Node Connection,NODE 22,AIRLOOPHVAC:ZONEMIXER,AIR LOOP HVAC ZONE MIXER 1,Inlet,1
+ Non-Parent Node Connection,NODE 10,OUTDOORAIR:MIXER,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1 OUTDOOR AIR MIXER,Outlet,1
+ Non-Parent Node Connection,OUTBOARD OA NODE,OUTDOORAIR:MIXER,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1 OUTDOOR AIR MIXER,Inlet,1
+ Non-Parent Node Connection,RELIEF NODE,OUTDOORAIR:MIXER,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1 OUTDOOR AIR MIXER,ReliefAir,1
+ Non-Parent Node Connection,NODE 5,OUTDOORAIR:MIXER,AIR LOOP HVAC OUTDOOR AIR SYSTEM 1 OUTDOOR AIR MIXER,Inlet,1
+ Non-Parent Node Connection,NODE 12,FAN:CONSTANTVOLUME,FAN CONSTANT VOLUME 1,Inlet,1
+ Non-Parent Node Connection,NODE 6,FAN:CONSTANTVOLUME,FAN CONSTANT VOLUME 1,Outlet,1
+ Non-Parent Node Connection,NODE 10,CONTROLLER:OUTDOORAIR,CONTROLLER OUTDOOR AIR 1,Sensor,1
+ Non-Parent Node Connection,OUTBOARD OA NODE,CONTROLLER:OUTDOORAIR,CONTROLLER OUTDOOR AIR 1,Actuator,1
+ Non-Parent Node Connection,RELIEF NODE,CONTROLLER:OUTDOORAIR,CONTROLLER OUTDOOR AIR 1,Actuator,1
+ Non-Parent Node Connection,NODE 5,CONTROLLER:OUTDOORAIR,CONTROLLER OUTDOOR AIR 1,Sensor,1
+ Non-Parent Node Connection,NODE 10,COIL:COOLING:DX:SINGLESPEED,COIL COOLING DX SINGLE SPEED 1,Inlet,1
+ Non-Parent Node Connection,NODE 11,COIL:COOLING:DX:SINGLESPEED,COIL COOLING DX SINGLE SPEED 1,Outlet,1
+ Non-Parent Node Connection,NODE 11,COIL:HEATING:FUEL,COIL HEATING GAS 1,Inlet,1
+ Non-Parent Node Connection,NODE 12,COIL:HEATING:FUEL,COIL HEATING GAS 1,Outlet,1
+ Non-Parent Node Connection,NODE 12,COIL:HEATING:FUEL,COIL HEATING GAS 1,Sensor,1
